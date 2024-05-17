@@ -5,6 +5,10 @@ from matplotlib import pyplot as plt
 import copy
 import random
 
+image_path = 'Figure_1.jpg' #Path of the image that you want to process
+population_size = 1000 # I recommend 750-1250 for best outcome
+mutation_rate = 40  #0-100
+
 # Function to read an image and convert it into a binary matrix
 def read_image(image_path, size=(224,224)):
     # Open and resize the image
@@ -99,8 +103,6 @@ def find_best_line(matris, points, x0, y0, x1, y1):
                 score_prev = score_next
     return xs, ys
 
-# Path of the image to be processed
-image_path = 'Figure_1.jpg'
 
 # Reading the image and displaying it
 matrix = read_image(image_path)
@@ -128,8 +130,7 @@ for theta in np.linspace(0, 2 * np.pi, 360):
 matrix_draw = copy.deepcopy(final_matrix)
 matrix_draw = np.zeros_like(matrix_draw)
 # Parameters for genetic algorithm
-population_size = 1000
-mutation_rate = 40  #0-100
+
 
 
 # Genetic algorithm for line drawing
